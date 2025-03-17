@@ -10,6 +10,10 @@ load_dotenv()
 # VPS --- FILL COOKIES 🍪 in """ ... """ 
 
 INST_COOKIES = """
+
+"""
+
+YTUB_COOKIES = """
 # Netscape HTTP Cookie File
 # https://curl.haxx.se/rfc/cookie_spec.html
 # This is a generated file! Do not edit.
@@ -40,10 +44,6 @@ INST_COOKIES = """
 .youtube.com	TRUE	/	FALSE	1740407388	ST-1yod0rt	csn=xbaMD_ZSl3bDpf1D&itct=CBAQ1TYiEwixs5u8wtyLAxVchNgFHfWHEqs%3D
 .youtube.com	TRUE	/	TRUE	0	YSC	dHbtgZbNhUI
 .youtube.com	TRUE	/	FALSE	1740575089	ST-13avi31	csn=TMcaElOy7oFUEZ6t&itct=CG0Q_FoiEwjjpby6s-GLAxXozjQHHVTGMoYyCmctaGlnaC1yZWNaD0ZFd2hhdF90b193YXRjaJoBBhCOHhieAQ%3D%3D
-"""
-
-YTUB_COOKIES = """
-# write here yt cookies
 """
 
 API_ID = os.getenv("API_ID", "28428156")
