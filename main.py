@@ -7,12 +7,9 @@ from shared_client import start_client
 import importlib
 import os
 import sys
-from pyrogram.types import User, Chat
 
 async def load_and_run_plugins():
-    # Start the shared client
-    client, app, userbot = await start_client()
-    
+    await start_client()
     plugin_dir = "plugins"
     plugins = [f[:-3] for f in os.listdir(plugin_dir) if f.endswith(".py") and f != "__init__.py"]
 
@@ -20,12 +17,12 @@ async def load_and_run_plugins():
         module = importlib.import_module(f"plugins.{plugin}")
         if hasattr(module, f"run_{plugin}_plugin"):
             print(f"Running {plugin} plugin...")
-            await getattr(module, f"run_{plugin}_plugin")()
+            await getattr(module, f"run_{plugin}_plugin")()  
 
 async def main():
     await load_and_run_plugins()
     while True:
-        await asyncio.sleep(1)
+        await asyncio.sleep(1)  
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
@@ -35,7 +32,9 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("Shutting down...")
     except Exception as e:
-        print(e)
         sys.exit(1)
     finally:
-        loop.close()
+        try:
+            loop.close()
+        except Exception:
+            pass
